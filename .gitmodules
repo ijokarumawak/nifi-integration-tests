@@ -1,0 +1,3 @@
+[submodule "nifi-api-client-js"]
+	path = nifi-api-client-js
+	url = https://github.com/ijokarumawak/nifi-api-client-js
