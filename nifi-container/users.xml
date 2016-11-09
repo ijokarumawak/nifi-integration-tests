@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<tenants>
+    <groups>
+        <group identifier="495aff8a-0158-1000-caef-fbeb72595880" name="nifi">
+            <user identifier="4953e587-0158-1000-d822-4f146eac873b"/>
+            <user identifier="49527840-0158-1000-2d2b-0485d3f443ce"/>
+            <user identifier="49541dcb-0158-1000-9039-8b58df84f693"/>
+            <user identifier="495405ac-0158-1000-8df4-ceb69c85be34"/>
+        </group>
+    </groups>
+    <users>
+        <user identifier="72cc9fbf-e558-36b7-9d1c-a5c194ee247f" identity="CN=user1, OU=NIFI"/>
+        <user identifier="49527840-0158-1000-2d2b-0485d3f443ce" identity="CN=nifi-ss, OU=NIFI"/>
+        <user identifier="4953e587-0158-1000-d822-4f146eac873b" identity="CN=nifi-sp, OU=NIFI"/>
+        <user identifier="495405ac-0158-1000-8df4-ceb69c85be34" identity="CN=nifi-cs, OU=NIFI"/>
+        <user identifier="49541dcb-0158-1000-9039-8b58df84f693" identity="CN=nifi-cp, OU=NIFI"/>
+        <user identifier="d94418f1-103d-1158-3592-5de1f69a3394" identity="CN=user2, OU=NIFI"/>
+    </users>
+</tenants>

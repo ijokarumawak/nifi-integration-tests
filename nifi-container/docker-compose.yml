@@ -1,0 +1,5 @@
+version: '2'
+services:
+  nifi:
+    build: .
+    image: nifi:1.0.0

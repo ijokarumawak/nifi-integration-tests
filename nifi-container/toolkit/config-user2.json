@@ -1,0 +1,17 @@
+{
+  "days" : 1095,
+  "keySize" : 2048,
+  "keyPairAlgorithm" : "RSA",
+  "signingAlgorithm" : "SHA256WITHRSA",
+  "dn" : "CN=user2,OU=NIFI",
+  "keyStore" : "user2KeyStore",
+  "keyStoreType" : "jks",
+  "keyStorePassword" : "5Oh49/pwAG22Df3jjUksLCeSPD0/mG8soBf53TWguzo",
+  "keyPassword" : "5Oh49/pwAG22Df3jjUksLCeSPD0/mG8soBf53TWguzo",
+  "token" : "secret-token",
+  "caHostname" : "localhost",
+  "port" : 8443,
+  "trustStore" : "user2TrustStore",
+  "trustStorePassword" : "/V2q931Xyfb7y47R1SbxkR/cFXapxrEU3mCuLsnkiMo",
+  "trustStoreType" : "jks"
+}

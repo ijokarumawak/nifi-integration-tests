@@ -1,0 +1,12 @@
+{
+  "name": "nifi-test-containers",
+  "license": "Apache-2.0",
+  "version": "0.0.1",
+  "dependencies": {
+    "nifi-api-client": "file:./nifi-api-client-js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ijokarumawak/nifi-test-containers.git"
+  }
+}
