@@ -49,5 +49,11 @@
         <policy identifier="495ca7a3-0158-1000-c7c8-34babd4f0302" resource="/data-transfer/output-ports/01581016-d944-18e1-7494-77fdedf893a9" action="W">
             <group identifier="495aff8a-0158-1000-caef-fbeb72595880"/>
         </policy>
+        <policy identifier="efeb048a-a6ce-3e7d-89c2-9fd2417b8059" resource="/proxy" action="R">
+            <group identifier="495aff8a-0158-1000-caef-fbeb72595880"/>
+        </policy>
+        <policy identifier="20a75180-0463-393f-9bc6-b6dee87c174f" resource="/proxy" action="W">
+            <group identifier="495aff8a-0158-1000-caef-fbeb72595880"/>
+        </policy>
     </policies>
 </authorizations>

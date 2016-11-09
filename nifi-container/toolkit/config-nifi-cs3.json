@@ -1,0 +1,17 @@
+{
+  "days" : 1095,
+  "keySize" : 2048,
+  "keyPairAlgorithm" : "RSA",
+  "signingAlgorithm" : "SHA256WITHRSA",
+  "dn" : "CN=nifi-cs3,OU=NIFI",
+  "keyStore" : "nifi-cs3-keystore",
+  "keyStoreType" : "jks",
+  "keyStorePassword" : "EOsAtDkSPTHMuaHXO3hU20bMXYlYIpGe90oxTTERh+4",
+  "keyPassword" : "EOsAtDkSPTHMuaHXO3hU20bMXYlYIpGe90oxTTERh+4",
+  "token" : "secret-token",
+  "caHostname" : "localhost",
+  "port" : 8443,
+  "trustStore" : "nifi-cs3-truststore",
+  "trustStorePassword" : "C6f6eEyU1WU8aRv7Io/q+6RwxazFB4VpMr5vJFFZQN0",
+  "trustStoreType" : "jks"
+}
