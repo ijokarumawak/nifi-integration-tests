@@ -1,4 +1,7 @@
 version: '2'
+volumes:
+  nifi:
+    external: true
 services:
   zoo1:
     image: zookeeper
@@ -16,6 +19,8 @@ services:
       - "8010:8080"
     environment:
       - NIFI_PROFILE=nifi-sp
+    volumes:
+      - nifi:/opt/nifi/storage
 
   nifi-ss:
     extends:
@@ -26,6 +31,9 @@ services:
     environment:
       - NIFI_PROFILE=nifi-ss
       - NIFI_HOSTNAME=nifi-ss
+      - NIFI_LIB_VERSION=1.1.0-SNAPSHOT
+    volumes:
+      - nifi:/opt/nifi/storage
 
   nifi-cp:
     extends:

@@ -35,3 +35,9 @@ openssl rsa -in user1-key.pem -out user1-key.pem
 ```
 
 https://github.com/docker-library/openjdk/issues/60
+
+```
+docker volume create --name nifi
+ln -s storage/nifi-1.1.0-SNAPSHOT/lib
+NiFi needs write permission on lib dir
+```
