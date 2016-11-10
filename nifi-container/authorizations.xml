@@ -55,5 +55,11 @@
         <policy identifier="20a75180-0463-393f-9bc6-b6dee87c174f" resource="/proxy" action="W">
             <group identifier="495aff8a-0158-1000-caef-fbeb72595880"/>
         </policy>
+        <policy identifier="4a858e7a-0158-1000-acad-12b2443de309" resource="/system" action="R">
+            <user identifier="72cc9fbf-e558-36b7-9d1c-a5c194ee247f"/>
+        </policy>
+        <policy identifier="4a8620ce-0158-1000-bf76-94ab8d8c4a53" resource="/provenance" action="R">
+            <user identifier="72cc9fbf-e558-36b7-9d1c-a5c194ee247f"/>
+        </policy>
     </policies>
 </authorizations>

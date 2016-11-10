@@ -5,7 +5,7 @@ var debug = true;
 
 nifiUtils.forEachEndpoint((nifiApi, nifiApiBack) => {
   console.log('got an API', nifiApi.endpoint);
-  nifiUtils.emptyAllQueues(nifiApi, 'root', nifiApiBack);
+  nifiUtils.printAllQueues(nifiApi, 'root', nifiApiBack);
 }, (err) => {
   if (err) return console.log(err);
 });
