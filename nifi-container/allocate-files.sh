@@ -2,15 +2,17 @@
 
 find /opt/nifi/data -type f -name '*.dat' |xargs rm -f
 
-tmp_file=/tmp/.generated-file
 for protocol in raw http
 do
   for queue in drain push
   do
-    for size in 1M 10M 100M
+#    for size in 1M 10M 100M
+    for size in 1K
     do
-      fallocate -l $size $tmp_file
-      mv $tmp_file /opt/nifi/data/s2s/$protocol/$queue-queue/$(hostname)-$protocol-$queue-$size.dat
+      for i in `seq -f "%04g" 1 100`
+      do
+        fallocate -l $size /opt/nifi/data/s2s/$protocol/$queue-queue/$(hostname)-$protocol-$queue-$size-$i.dat
+      done
     done
   done
 done

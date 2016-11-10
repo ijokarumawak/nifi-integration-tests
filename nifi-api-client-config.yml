@@ -1,0 +1,26 @@
+nifi-sp:
+  host: 192.168.99.100
+  port: 8010
+  secure: false
+nifi-ss:
+  host: 192.168.99.100
+  port: 8410
+  secure: true
+  checkServerIdentity: false
+  caCert: nifi-container/toolkit/nifi-cert.pem
+  clientCert: nifi-container/toolkit/user1-cert.pem
+  clientKey: nifi-container/toolkit/user1-key.pem
+  clientKeyPass: password
+nifi-cp:
+  host: 192.168.99.100
+  port: 8020
+  secure: false
+nifi-cs:
+  host: 192.168.99.100
+  port: 8420
+  secure: true
+  checkServerIdentity: false
+  caCert: nifi-container/toolkit/nifi-cert.pem
+  clientCert: nifi-container/toolkit/user1-cert.pem
+  clientKey: nifi-container/toolkit/user1-key.pem
+  clientKeyPass: password

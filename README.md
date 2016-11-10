@@ -15,6 +15,7 @@ It takes 5 - 10 mins for the entire environment gets ready.
 
 ## Memo
 
+```
 tls-toolkit.sh server -F -f config-ca.json
 tls-toolkit.sh client -F -f config-nifi-sp.json
 tls-toolkit.sh client -F -f config-nifi-ss.json
@@ -27,5 +28,10 @@ keytool -importkeystore -srckeystore user1KeyStore -destkeystore user1.p12 -srcs
  -deststoretype PKCS12 -srcalias nifi-key -destalias nifi-key \
  -srcstorepass $(cat config-user1.json |jq -r .keyStorePassword) \
  -deststorepass password -destkeypass password
+openssl pkcs12 -in user1.p12 -clcerts -nokeys -out user1-cert.pem
+openssl pkcs12 -in user1.p12 -nocerts -out user1-key.pem
+# If you need to remove password protection
+openssl rsa -in user1-key.pem -out user1-key.pem
+```
 
 https://github.com/docker-library/openjdk/issues/60
