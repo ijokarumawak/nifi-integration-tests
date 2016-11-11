@@ -1,6 +1,6 @@
 #!/bin/sh
 
-for container_id in `docker ps |grep nifitestcontainers_nifi |awk '{print $1}'`
+for container_id in `docker-compose ps |grep nif |awk '{print $1}'`
 do
   docker exec -it $container_id $@
 done

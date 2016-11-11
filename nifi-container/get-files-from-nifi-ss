@@ -2,7 +2,7 @@
 
 for f in flow.xml.gz authorizers.xml authorizations.xml users.xml
 do
-  docker cp nifitestcontainers_nifi-ss_1:/opt/nifi/conf/$f ./conf
+  docker cp nifiintegration-tests_nifi-ss_1:/opt/nifi/conf/$f ./conf
   # Add permissions so that nifi user can r/w these files.
   chmod 666 ./conf/$f
 done
