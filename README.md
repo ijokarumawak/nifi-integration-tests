@@ -1,5 +1,13 @@
-# nifi-test-containers
-Docker containers for test
+# Automated NiFi Integration Tests
+
+Apache NiFi has lots of Unit Test code and its mock module is very convenient, however it is not that easy to conduct a series of automated Integration Tests with running NiFi processes and its active data flow.
+It's mainly because NiFi doesn't provide an 'Easy to Use' programmable interface to control flow, such as to start or stop Processors, deploy templates or verify queued flow file count ... etc.
+Also, due to the characteristic of the product, we need to integrate with a variety of data sources. It is difficult to keep maintaining those environments manually.
+
+This project is aimed to solve above concerns. Designed to provide a framework for NiFi Integration Test.
+
+## Key Components
+
 
 
 - docker-machine spec recommendation:
@@ -17,6 +25,27 @@ It takes 5 - 10 mins for the entire environment gets ready.
 - `NIFI_PROFILE`: Switchs to use `nifi-NIFI_PROFILE.properties`
 - `NIFI_HOSTNAME`: Overrides `NIFI_PROFILE`
 
+## How to update NiFi lib files
+
+```
+# login to docker machine
+docker-machine ssh
+
+# find the mount point for nifi storage volume
+docker volume inspect nifi
+
+# then sync the lib dir, don't forget to add permission so that it can be accessed by nifi containers.
+sudo su - 
+rsync -av <src-nifi>/lib <mount-point>/nifi-<version>/lib
+chmod -R 777 <mount-point>nifi-<version>/lib
+```
+
+## Useful commands
+
+```
+docker-compose restart
+docker-compose exec nifi-sp tail -f logs/nifi-app.log
+```
 
 ## Memo
 
