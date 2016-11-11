@@ -12,9 +12,11 @@ This project is aimed to solve above concerns. Designed to provide a framework f
 
 - [NiFi Docker Container](https://github.com/ijokarumawak/nifi-integration-tests/tree/master/nifi-container): This container provides following features to support integration tests:
 
-  - Different NiFi setups, Standalone Plain (nifi-sp), Standalone Secure (nifi-ss), Clusterd Plain (nifi-cp) and Clustered Secure (nifi-ss) are configured in the main [docker-compose](https://github.com/ijokarumawak/nifi-integration-tests/blob/master/docker-compose.yml) file. Each of those extends [nifi docker compose service](https://github.com/ijokarumawak/nifi-integration-tests/blob/master/nifi-container/docker-compose.yml).
-  - [Test cases](https://github.com/ijokarumawak/nifi-integration-tests/tree/master/nifi-container/tests): To add newintegration test, create a sub directory, and put a script file named `build-test`, like [nifi-container/tests/s2s/build-test](https://github.com/ijokarumawak/nifi-integration-tests/blob/master/nifi-container/tests/s2s/build-test) whic builds and configures the docker containerimage. The script is called when `docker-compose build` command is executed. Files in the test directory will be added to the container, and accessible by the main test scripts, e.g. [tests/s2s/run-test](https://github.com/ijokarumawak/nifi-integration-tests/blob/master/tests/s2s/run-test).
-  - [SNAPSHOT deployment]: it's crucial to support updating NiFi programs frequently without building the container image. To do this, this project takes advantage of Docker volume. A shared volume is used by all NiFi containers to load NiFi libraries from there. By updating the shared volume content and restart containers by `docker-compose restart`, all containers will run with the updated NiFi modules.
+  - **Different NiFi setups**, Standalone Plain (nifi-sp), Standalone Secure (nifi-ss), Clusterd Plain (nifi-cp) and Clustered Secure (nifi-cs) are configured in the main [docker-compose](https://github.com/ijokarumawak/nifi-integration-tests/blob/master/docker-compose.yml) file. Each of those extends [nifi docker compose service](https://github.com/ijokarumawak/nifi-integration-tests/blob/master/nifi-container/docker-compose.yml).
+  - [**Test cases**](https://github.com/ijokarumawak/nifi-integration-tests/tree/master/nifi-container/tests): To add new integration test, create a sub directory, and put a script file named `build-test`, like [nifi-container/tests/s2s/build-test](https://github.com/ijokarumawak/nifi-integration-tests/blob/master/nifi-container/tests/s2s/build-test) which builds and configures the NiFi docker container image.
+The script is called when `docker-compose build` command is executed.
+Files in the test directory will be added to the container, and accessible by the main test scripts, e.g. [tests/s2s/run-test](https://github.com/ijokarumawak/nifi-integration-tests/blob/master/tests/s2s/run-test).
+  - **SNAPSHOT deployment**: it's crucial to support updating NiFi programs frequently without building the container image. To do this, this project takes advantage of Docker volume. A shared volume is used by all NiFi containers to load NiFi libraries from there. By updating the shared volume content and restart containers by `docker-compose restart`, all containers will run with the updated NiFi modules.
   - TODO: It's planned to add support for adding other containers such as databases dedicated to specific test case. It's important to keep the environment small enough so that all containers can run on a single Docker host. Maybe NiFi containers will keep running while other containers will be started/stopped from test scripts.
 
 ## How to install
@@ -38,7 +40,7 @@ docker volume create --name nifi
 docker-compose build
 ```
 
-## How to start
+## How to start containers
 
 It's recommended to test with a single docker compose service to see if it works:
 
@@ -55,6 +57,12 @@ docker-compose up -d
 ```
 
 It takes 5 - 10 mins for the entire environment gets ready.
+
+## How to run test
+
+```
+./tests/s2s/run-test run
+```
 
 ## Environment Values
 
