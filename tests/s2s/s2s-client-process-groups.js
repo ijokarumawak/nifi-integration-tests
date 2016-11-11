@@ -1,7 +1,4 @@
-var nifiUtils = require('./lib/nifi-api-utils.js');
-
-var trace = false;
-var debug = false;
+var nifiUtils = require('../../lib/nifi-api-utils.js');
 
 var s2sClientProcessGroupIds = {
   's2s-raw-rpg': '01581009-4fef-19ed-a436-d6e03e567935',
@@ -22,14 +19,13 @@ if (cmd !== 'start' && cmd !== 'stop') {
   usage();
 }
 
+var running = 'start' === cmd;
 nifiUtils.forEachEndpoint((nifiApi, nifiApiBack) => {
-  console.log('got an API', nifiApi.endpoint);
 
   var pgs = Object.keys(s2sClientProcessGroupIds).map((name) => {
     return {name: name, id: s2sClientProcessGroupIds[name]};
   });
 
-  var running = 'start' === cmd;
   nifiUtils.visitArray(pgs, (pg, pgBack) => {
     console.log(running ? 'Starting' : 'Stopping', pg.id, pg.name);
     nifiApi.updateProcessGroupState(pg.id, running, pgBack);
@@ -38,5 +34,5 @@ nifiUtils.forEachEndpoint((nifiApi, nifiApiBack) => {
 }, (err) => {
   if (err) return console.log(err);
 
-  console.log('Stopped S2S client ProcessGroups!');
+  console.log(running ? 'Started' : 'Stopped', 'S2S client ProcessGroups!');
 });

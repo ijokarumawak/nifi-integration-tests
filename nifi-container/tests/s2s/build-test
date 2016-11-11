@@ -1,0 +1,8 @@
+#!/bin/sh
+
+mkdir -p ${NIFI_HOME}/data/s2s/raw/drain-queue \
+  && mkdir -p ${NIFI_HOME}/data/s2s/http/drain-queue \
+  && mkdir -p ${NIFI_HOME}/data/s2s/raw/push-queue \
+  && mkdir -p ${NIFI_HOME}/data/s2s/http/push-queue
+
+

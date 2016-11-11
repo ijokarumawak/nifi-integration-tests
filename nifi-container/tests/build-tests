@@ -1,0 +1,7 @@
+#!/bin/sh
+
+for build_script in $(find tests -type f -name 'build-test')
+do
+  echo "Executing $build_script"
+  $build_script
+done

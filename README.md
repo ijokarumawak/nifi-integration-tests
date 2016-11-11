@@ -12,6 +12,11 @@ docker-compose up -d
 
 It takes 5 - 10 mins for the entire environment gets ready.
 
+## Environment Values
+
+- `NIFI_PROFILE`: Switchs to use `nifi-NIFI_PROFILE.properties`
+- `NIFI_HOSTNAME`: Overrides `NIFI_PROFILE`
+
 
 ## Memo
 

@@ -1,0 +1,69 @@
+#!/bin/sh
+
+DIR=`dirname $0`
+PROJECT_HOME="$DIR/../../"
+BIN_DIR="$PROJECT_HOME/bin"
+LIB_DIR="$PROJECT_HOME/lib"
+
+CMD_ON_NIFI="$BIN_DIR/exec-command-on-nifi-containers"
+TEST_DIR=/opt/nifi/tests/s2s
+
+function stop_pg {
+  node $DIR/s2s-client-process-groups.js stop
+}
+
+function start_pg {
+  node $DIR/s2s-client-process-groups.js start
+}
+
+function wait_transferred {
+  node $DIR/wait-all-files-transferred.js
+}
+
+function empty_queues {
+  node $LIB_DIR/empty-all-queues.js
+}
+
+function delete_data_files {
+  $CMD_ON_NIFI $TEST_DIR/delete-data-files
+}
+
+function allocate_data_files {
+  $CMD_ON_NIFI $TEST_DIR/allocate-data-files
+}
+
+function count_data_files {
+  $CMD_ON_NIFI $TEST_DIR/count-data-files
+}
+
+function run {
+  echo "Start NiFi S2S Test!" \
+    && stop_pg \
+    && delete_data_files \
+    && empty_queues \
+    && allocate_data_files \
+    && count_data_files \
+    && start_pg \
+    && wait_transferred \
+    && count_data_files
+}
+
+CMD=$1
+
+if [ -z "$CMD" ]
+then
+  echo "Command was not specified:"
+  echo " run:"
+  echo " empty_queues:"
+  echo " start_pg:"
+  echo " stop_pg:"
+  echo " delete_data_files:"
+  echo " allocate_data_files:"
+  echo " count_data_files:"
+  echo " wait_transferred:"
+  exit 1
+fi
+
+$CMD
+
+

@@ -1,7 +1,9 @@
 version: '2'
+
 volumes:
   nifi:
     external: true
+
 services:
   zoo1:
     image: zookeeper
@@ -19,8 +21,6 @@ services:
       - "8010:8080"
     environment:
       - NIFI_PROFILE=nifi-sp
-    volumes:
-      - nifi:/opt/nifi/storage
 
   nifi-ss:
     extends:
@@ -29,11 +29,7 @@ services:
     ports:
       - "8410:8443"
     environment:
-      - NIFI_PROFILE=nifi-ss
       - NIFI_HOSTNAME=nifi-ss
-      - NIFI_LIB_VERSION=1.1.0-SNAPSHOT
-    volumes:
-      - nifi:/opt/nifi/storage
 
   nifi-cp:
     extends:
@@ -64,9 +60,7 @@ services:
     depends_on:
       - zoo1
     environment:
-      - NIFI_PROFILE=nifi-cs1
       - NIFI_HOSTNAME=nifi-cs1
-      - NIFI_CLUSTERNAME=nifi-cs
 
   nifi-cs2:
     extends:
@@ -75,9 +69,7 @@ services:
     depends_on:
       - zoo1
     environment:
-      - NIFI_PROFILE=nifi-cs2
       - NIFI_HOSTNAME=nifi-cs2
-      - NIFI_CLUSTERNAME=nifi-cs
 
   nifi-cs3:
     extends:
@@ -86,6 +78,4 @@ services:
     depends_on:
       - zoo1
     environment:
-      - NIFI_PROFILE=nifi-cs3
       - NIFI_HOSTNAME=nifi-cs3
-      - NIFI_CLUSTERNAME=nifi-cs

@@ -1,7 +1,4 @@
-var nifiUtils = require('./lib/nifi-api-utils.js');
-
-var trace = false;
-var debug = true;
+var nifiUtils = require('../../lib/nifi-api-utils.js');
 
 var queuesShouldBeEmpty = {
   "s2s/raw/drain-queue": "01581043-d944-18e1-b69e-d838e445e5b5",
@@ -16,11 +13,10 @@ var queuesShouldBeEmpty = {
   "s2s/http/push-queue/cs": "01581002-4fef-19ed-764b-b8a5d276b69f"
 };
 
-var timeoutMillis = 60000;
-var queueCheckInterval = 5000;
+var timeoutMillis = 300000;
+var queueCheckInterval = 10000;
 
 nifiUtils.forEachEndpoint((nifiApi, nifiApiBack) => {
-  console.log('got an API', nifiApi.endpoint);
 
   var queues = Object.keys(queuesShouldBeEmpty).map((name) => {
     return {name: name, id: queuesShouldBeEmpty[name]};

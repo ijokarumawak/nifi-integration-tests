@@ -8,6 +8,7 @@
             <user identifier="72cc9fbf-e558-36b7-9d1c-a5c194ee247f"/>
         </policy>
         <policy identifier="20952d6f-d80b-3ba5-8a03-8134c6c6bc48" resource="/data/process-groups/4850e9d5-0158-1000-7486-e92d0d8586b6" action="W">
+            <group identifier="495aff8a-0158-1000-caef-fbeb72595880"/>
             <user identifier="72cc9fbf-e558-36b7-9d1c-a5c194ee247f"/>
         </policy>
         <policy identifier="a1a0286d-81ba-37b6-8c0d-ae25c3479b67" resource="/process-groups/4850e9d5-0158-1000-7486-e92d0d8586b6" action="R">
