@@ -62,5 +62,8 @@
         <policy identifier="4a8620ce-0158-1000-bf76-94ab8d8c4a53" resource="/provenance" action="R">
             <user identifier="72cc9fbf-e558-36b7-9d1c-a5c194ee247f"/>
         </policy>
+        <policy identifier="b55ec01f-0158-1000-c3d8-297b67f41136" resource="/restricted-components" action="W">
+            <user identifier="72cc9fbf-e558-36b7-9d1c-a5c194ee247f"/>
+        </policy>
     </policies>
 </authorizations>
