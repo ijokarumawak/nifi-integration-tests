@@ -12,4 +12,3 @@ services:
       - NIFI_LIB_VERSION=1.2.0-SNAPSHOT
     volumes:
       - nifi:/opt/nifi/storage
-      - /dev/urandom:/dev/random
