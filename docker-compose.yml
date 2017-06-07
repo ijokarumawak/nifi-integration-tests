@@ -42,15 +42,6 @@ services:
     environment:
       - NIFI_PROFILE=nifi-cp
 
-  nifi-cp-nodes:
-    extends:
-      file: ./nifi-container/docker-compose.yml
-      service: nifi
-    depends_on:
-      - nifi-cp
-    environment:
-      - NIFI_PROFILE=nifi-cp
-
   nifi-cs1:
     extends:
       file: ./nifi-container/docker-compose.yml
@@ -61,21 +52,3 @@ services:
       - zoo1
     environment:
       - NIFI_HOSTNAME=nifi-cs1
-
-  nifi-cs2:
-    extends:
-      file: ./nifi-container/docker-compose.yml
-      service: nifi
-    depends_on:
-      - zoo1
-    environment:
-      - NIFI_HOSTNAME=nifi-cs2
-
-  nifi-cs3:
-    extends:
-      file: ./nifi-container/docker-compose.yml
-      service: nifi
-    depends_on:
-      - zoo1
-    environment:
-      - NIFI_HOSTNAME=nifi-cs3

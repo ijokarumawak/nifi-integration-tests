@@ -119,3 +119,8 @@ docker volume create --name nifi
 ln -s storage/nifi-1.1.0-SNAPSHOT/lib
 NiFi needs write permission on lib dir
 ```
+
+```
+# Import client certificate to login NiFi UI via HTTPS
+security import user1.p12 -P password
+```

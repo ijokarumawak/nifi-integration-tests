@@ -9,9 +9,12 @@ else
 fi
 
 echo "### Start cofiguring nifi.properties..."
+echo "NIFI_HOME=${NIFI_HOME}"
 echo "NIFI_HOSTNAME=${NIFI_HOSTNAME}"
 echo "NIFI_PROFILE=${NIFI_PROFILE}"
 echo "HOSTNAME_PROPERTY=${HOSTNAME_PROPERTY}"
+
+cd ${NIFI_HOME}
 
 cp -p conf/${NIFI_PROFILE}.properties conf/nifi.properties
 
@@ -34,7 +37,7 @@ cat conf/nifi.properties
 if [ -n "${NIFI_LIB_VERSION}" ]
 then
   rm -rf lib
-  ln -s storage/nifi-${NIFI_LIB_VERSION}/lib
+  ln -s /opt/nifi/storage/nifi-${NIFI_LIB_VERSION}/lib
   sed -i -e \
     "s|^nifi.version=.*$|nifi.version=${NIFI_LIB_VERSION}|" \
     conf/nifi.properties
@@ -46,4 +49,9 @@ fi
 echo "### Configured ${NIFI_HOME}:"
 ls -l
 
+echo "### Building tests..."
+tests/build-tests
+
+echo "### Starting NiFi..."
 bin/nifi.sh run
+tail -f bin/nifi.sh

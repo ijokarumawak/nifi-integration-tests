@@ -9,6 +9,6 @@ services:
     build: .
     image: nifi:1.0.0
     environment:
-      - NIFI_LIB_VERSION=1.2.0-SNAPSHOT
+      - NIFI_LIB_VERSION=1.3.0-vote
     volumes:
       - nifi:/opt/nifi/storage
